@@ -1,0 +1,6 @@
+<h2>Listado de Juegos</h2>
+<ul>
+  <li ng-repeat="game in main.games">
+    <a href="/game/{{game.id}}" ng-bind="game.name"></a>
+  </li>
+</ul>

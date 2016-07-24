@@ -1,0 +1,6 @@
+<h2>Listado de Jugadores</h2>
+<ul>
+	<li ng-repeat="player in game.players">
+		<a href="/player/{{player.id}}" ng-bind="player.name"></a>
+	</li>
+</ul>

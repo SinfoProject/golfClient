@@ -1,0 +1,39 @@
+<h1>{{player.name}}</h1>
+
+<md-card>
+  <md-card-title>
+    <span class="md-headline">{{player.player.name}}</span>
+  </md-card-title>
+  <md-card-content>
+    <table class="table table-striped" >
+      <thead>
+        <tr>
+          <th>Hoyos</th>
+          <th ng-repeat="thHole in player.holes">{{thHole}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Movimientos</td>
+          <td ng-repeat="td in player.holes">
+            <md-button ng-value="td" ng-click="player.setValues(td)">{{player.results[td]}}</md-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </md-card-content>
+</md-card>
+
+<div>{{vm.shots}}</div>
+<div>{{vm.penalties}}</div>
+
+<div ng-repeat="field in player.holes" ng-if="player.selected == field">
+  <div>
+    <label for="shot">Shots</label>
+    <input id="shot" type="number" ng-model="player.shots[field]" ng-change="player.calculate(field)">
+  </div>
+  <div>
+    <label for="penalty">Penalties</label>
+    <input id="penalty" type="number" ng-model="player.penalties[field]" ng-change="player.calculate(field)">
+  </div>
+</div>
